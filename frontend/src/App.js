@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Footer from './components/Footer'
+import Accordian from './components/Accordian'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					element={
 						<>
 							<Navbar />
+							<Accordian />
 							<Footer />
 						</>
 					}

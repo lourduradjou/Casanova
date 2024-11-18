@@ -6,7 +6,6 @@ const Footer = () => {
 			<aside>
 				<p>
 					Copyright © {new Date().getFullYear()} - All right reserved
-					by Ptu-cse department
 				</p>
 			</aside>
 		</footer>
