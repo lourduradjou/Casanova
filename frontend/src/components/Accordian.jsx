@@ -3,25 +3,29 @@ import React from 'react'
 const Accordian = () => {
 	return (
 		<div className='min-h-[100vh]'>
-			<div className='w-full flex items-center justify-center min-h-[90vh]'>
-				<div className='w-[50%]'>
-					<div className='collapse collapse-arrow bg-base-200 mb-4'>
+			<div className='w-full flex justify-center mt-12'>
+				<div className='md:w-[50%] w-full mx-12'>
+					<div className='collapse collapse-arrow bg-base-200 mb-4 p-3 md:p-2'>
 						<input
 							type='radio'
 							name='my-accordion-2'
 							defaultChecked
 						/>
 						<div className='collapse-title text-xl font-medium flex justify-between'>
-							<div>Finish the C# Assignment</div>
-							<div className='space-x-4'>
-								<button className='btn btn-info '>Edit</button>
-								<button className='btn btn-error'>
+							<div className='font-sans'>
+								Finish the C# Assignment
+							</div>
+							<div className='space-x-4 hidden md:block'>
+								<button className='btn btn-info font-mono '>
+									Edit
+								</button>
+								<button className='btn btn-error font-mono '>
 									Delete
 								</button>
 							</div>
 						</div>
 						<div className='collapse-content'>
-							<p>
+							<p className='text-sm md:text-md'>
 								Lorem ipsum dolor sit amet consectetur
 								adipisicing elit. Sed magni veniam earum omnis.
 								Exercitationem officiis expedita ipsum eligendi
@@ -29,33 +33,36 @@ const Accordian = () => {
 								accusantium laboriosam, ea eveniet rerum,
 								laborum possimus!
 							</p>
-							<div>
-								<p className='mt-2'>Created On: 24/8/2024</p>
-								<p>Posted By: Pandey</p>
+							<div className='flex justify-between w-full items-center bg-gray-100 text-black px-3 py-3 rounded-md my-4'>
+								<div>
+									<p className='font-sans '>
+										<span className='text-md font-semibold'>
+											Created On:{' '}
+										</span>
+										<span className=''> 24/8/2024</span>
+									</p>
+									<p className='font-sans'>
+										<span className='font-semibold mr-4'>
+											Posted By:
+										</span>
+										Pandey
+									</p>
+								</div>
+								<div className='flex flex-col justify-end space-y-4 ml-2 md:hidden'>
+									<button className='px-4 py-2 text-black bg-blue-400 rounded-lg font-mono '>
+										Edit
+									</button>
+									<button className='bg-red-400 px-4 py-2 rounded-lg btn-error font-mono '>
+										Delete
+									</button>
+								</div>
 							</div>
+
 							{/* Specialized Tags */}
 							<div>
 								{/* imp */}
 								{/* not imp */}
 							</div>
-						</div>
-					</div>
-					<div className='collapse collapse-arrow bg-base-200 mb-4'>
-						<input type='radio' name='my-accordion-2' />
-						<div className='collapse-title text-xl font-medium'>
-							Click to open this one and close others
-						</div>
-						<div className='collapse-content'>
-							<p>hello</p>
-						</div>
-					</div>
-					<div className='collapse collapse-arrow bg-base-200 mb-4'>
-						<input type='radio' name='my-accordion-2' />
-						<div className='collapse-title text-xl font-medium'>
-							Click to open this one and close others
-						</div>
-						<div className='collapse-content'>
-							<p>hello</p>
 						</div>
 					</div>
 				</div>

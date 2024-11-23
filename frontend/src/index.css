@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+	font-family: 'sans', sans-serif;
+	background-color: #3e1f47;
+}
+
 @layer utilities {
 	.scrollbar-none {
 		scrollbar-width: none; /* Firefox */

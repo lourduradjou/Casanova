@@ -3,22 +3,29 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Footer from './components/Footer'
-import Accordian from './components/Accordian'
+import SuperAdmin from './components/superAdmin'
+import HomePage from './Pages/HomePage'
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter
+			future={{
+				v7_startTransition: true, // Opt into startTransition
+				v7_relativeSplatPath: true, // Opt into relative splat path behavior
+			}}
+		>
 			<Routes>
 				{/* Admin Route (without Navbar and Footer) */}
 				<Route path='/admin' element={<Login />} />
+				<Route path='/superadmin' element={<SuperAdmin />} />
 
 				{/* Public Routes (with Navbar and Footer) */}
 				<Route
-					path='/*'
+					path='/'
 					element={
 						<>
 							<Navbar />
-							<Accordian />
+							<HomePage />
 							<Footer />
 						</>
 					}

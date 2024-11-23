@@ -3,34 +3,50 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Alert from './Alert'
 
-const Login = () => {
+const SuperAdmin = () => {
 	const [username, setUsername] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
-	const [errorMessage, setErrorMessage] = useState('')
+	const [alertMessage, setAlertMessage] = useState('')
+	const [alertType, setAlertType] = useState('')
+	const [adminPassword, setAdminPassword] = useState('')
 	const navigate = useNavigate()
 
 	const handleUserLogin = async () => {
-		setErrorMessage('')
+		setAlertMessage('') // Clear previous messages
 		try {
-			const user = await axios.post(
-				'http://localhost:5000/api/auth/login',
+			const response = await axios.post(
+				'http://localhost:5000/api/auth/createAdmin',
 				{
 					username,
 					email,
 					password,
-				},
-				{
-					withCredentials: true,
+					adminPassword,
 				}
 			)
-			if (user) navigate('/')
-			console.log(user.data)
+			console.log(response)
+
+			if (response.data.type === 'success') {
+				setAlertMessage(response.data.message)
+				setAlertType('success')
+				navigate('/')
+			}
 		} catch (error) {
-			setErrorMessage(error.response.data.message)
 			console.log('inside axios error!')
-			console.log(error.response.data.message)
-			console.log(errorMessage)
+
+			// Safely access error response data
+			const errorMessage =
+				error.response?.data?.message ||
+				error.message ||
+				'Something went wrong'
+
+			// Set alert message and type
+			setAlertMessage(errorMessage)
+			setAlertType('error')
+
+			// Log detailed error information for debugging
+			console.error('Axios Error:', errorMessage)
+			console.error('Full Error Object:', error)
 		}
 	}
 
@@ -43,8 +59,8 @@ const Login = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			{errorMessage && (
-				<Alert type={'error'} alertMessage={errorMessage} />
+			{alertMessage && (
+				<Alert type={alertType} alertMessage={alertMessage} />
 			)}
 			<div className='bg-gray-700 w-full flex flex-col items-center justify-center min-h-screen'>
 				<div className='tooltip mb-6' data-tip='Welcome back chief!'>
@@ -107,6 +123,27 @@ const Login = () => {
 							placeholder='password'
 						/>
 					</label>
+					<label className='input input-bordered flex items-center gap-2 mb-4'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							viewBox='0 0 16 16'
+							fill='currentColor'
+							className='h-4 w-4 opacity-70'
+						>
+							<path
+								fillRule='evenodd'
+								d='M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z'
+								clipRule='evenodd'
+							/>
+						</svg>
+						<input
+							type='text'
+							className='grow'
+							value={adminPassword}
+							onChange={(e) => setAdminPassword(e.target.value)}
+							placeholder='Admin password'
+						/>
+					</label>
 					<div className='flex w-full justify-center items-center space-x-2 mt-6'>
 						<div className='w-full flex justify-center'>
 							<Link to='/' className='w-full'>
@@ -132,4 +169,4 @@ const Login = () => {
 	)
 }
 
-export default Login
+export default SuperAdmin
