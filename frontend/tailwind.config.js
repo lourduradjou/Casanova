@@ -2,11 +2,10 @@
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {
-			fontFamily: {
-				roboto: ['Roboto', 'sans-serif'], // Add the Roboto font here
-			},
-		},
+		extend: {},
 	},
 	plugins: [require('daisyui')],
+	daisyui: {
+		themes: ['corporate', 'coffee'],
+	},
 }

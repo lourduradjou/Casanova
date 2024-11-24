@@ -2,27 +2,27 @@ import React from 'react'
 
 const Accordian = () => {
 	return (
-		<div className='min-h-[100vh]'>
-			<div className='w-full flex justify-center mt-12'>
-				<div className='md:w-[50%] w-full mx-12'>
-					<div className='collapse collapse-arrow bg-base-200 mb-4 p-3 md:p-2'>
+		<div className='w-full flex justify-center items-center'>
+			<div className='w-full flex justify-center mt-2 items-center'>
+				<div className=' w-full ml-6 mr-2'>
+					<div className='collapse collapse-arrow bg-slate-200 mb-1'>
 						<input
 							type='radio'
 							name='my-accordion-2'
 							defaultChecked
 						/>
-						<div className='collapse-title text-xl font-medium flex justify-between'>
-							<div className='font-sans'>
+						<div className='collapse-title text-lg font-medium flex justify-between'>
+							<div className='font-sans text-secondary ml-4'>
 								Finish the C# Assignment
 							</div>
-							<div className='space-x-4 hidden md:block'>
+							{/* <div className='space-x-4 hidden md:block'>
 								<button className='btn btn-info font-mono '>
 									Edit
 								</button>
 								<button className='btn btn-error font-mono '>
 									Delete
 								</button>
-							</div>
+							</div> */}
 						</div>
 						<div className='collapse-content'>
 							<p className='text-sm md:text-md'>
@@ -48,14 +48,14 @@ const Accordian = () => {
 										Pandey
 									</p>
 								</div>
-								<div className='flex flex-col justify-end space-y-4 ml-2 md:hidden'>
+								{/* <div className='flex flex-col justify-end space-y-4 ml-2 md:hidden'>
 									<button className='px-4 py-2 text-black bg-blue-400 rounded-lg font-mono '>
 										Edit
 									</button>
 									<button className='bg-red-400 px-4 py-2 rounded-lg btn-error font-mono '>
 										Delete
 									</button>
-								</div>
+								</div> */}
 							</div>
 
 							{/* Specialized Tags */}

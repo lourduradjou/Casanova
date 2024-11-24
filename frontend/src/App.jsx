@@ -1,10 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Navbar from './components/Navbar'
 import Login from './components/Login'
-import Footer from './components/Footer'
 import SuperAdmin from './components/superAdmin'
-import HomePage from './Pages/HomePage'
+import HomeScreen from './Pages/HomeScreen'
 
 function App() {
 	return (
@@ -20,16 +18,7 @@ function App() {
 				<Route path='/superadmin' element={<SuperAdmin />} />
 
 				{/* Public Routes (with Navbar and Footer) */}
-				<Route
-					path='/'
-					element={
-						<>
-							<Navbar />
-							<HomePage />
-							<Footer />
-						</>
-					}
-				/>
+				<Route path='/' element={<HomeScreen />} />
 			</Routes>
 		</BrowserRouter>
 	)
